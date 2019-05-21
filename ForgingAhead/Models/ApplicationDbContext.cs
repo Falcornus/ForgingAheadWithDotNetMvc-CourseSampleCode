@@ -14,7 +14,7 @@ namespace ForgingAhead.Models
 
         protected override void OnConfiguring(DbContextOptionsBuilder options)
         {
-            var connectionString = @"Server=CPX-E8OWI27UK0V\SQLEXPRESS;Database=ForgingAhead.NewDb;Trusted_Connection=True;";
+            var connectionString = Startup.ConnectionString;
             options.UseSqlServer(connectionString);
             base.OnConfiguring(options);
         }

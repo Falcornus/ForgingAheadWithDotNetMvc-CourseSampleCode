@@ -19,6 +19,8 @@ namespace ForgingAhead
             Configuration = builder.Build();
         }
 
+        public static string ConnectionString { get; private set; }
+
         public IConfigurationRoot Configuration { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
@@ -54,6 +56,8 @@ namespace ForgingAhead
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");
             });
+
+            ConnectionString = Configuration.GetConnectionString("ForgingAheadDatabase");
         }
     }
 }
